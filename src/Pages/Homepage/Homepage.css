@@ -19,3 +19,16 @@
 
   color: white;
 }
+
+.Homepage-title {
+  font-family: 'Roboto mono';
+  font-size: 64px;
+
+  margin-bottom: 150px;
+}
+.chakra-button {
+  font-family: 'Roboto Mono' !important;
+}
+.join-link {
+    transition: 550ms opacity ease-in;
+}

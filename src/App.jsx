@@ -22,7 +22,7 @@ export const App = () => {
       <Routes>
         <Route path="/goit-react-hw-08-phonebook" element={<Layout />}>
           <Route index element={<Homepage />} />
-          {/* <Route path="/register" element={<Register />} /> */}
+          <Route path="register" element={<Register />} />
           <Route path="login" element={<LogIn />} />
           <Route path="contacts" element={<Contacts />} />
           <Route path="*" element={<NotFoundPage />} />
