@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/683.52cd2097.chunk.js","mappings":"0JASA,UAPc,WACZ,OACE,+BACE,yBAGL,C","sources":["Pages/LogIn/LogIn.jsx"],"sourcesContent":["// import './LogIn.scss';\n\nconst LogIn = () => {\n  return (\n    <>\n      <></>\n    </>\n  );\n};\nexport default LogIn;\n"],"names":[],"sourceRoot":""}
