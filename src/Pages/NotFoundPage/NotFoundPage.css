@@ -1,0 +1,17 @@
+.notFoundPage {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+.notFoundPage p {
+  font-size: 60px;
+
+  display: flex;
+  align-items: flex-end;
+}
+
+.notFoundPage svg {
+  font-size: 80px;
+}

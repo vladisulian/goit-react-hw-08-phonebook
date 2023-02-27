@@ -9,10 +9,11 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from 'Pages/Layout/Layout';
 // lazy pages
-const Homepage = lazy(() => import('./Pages/Homepage/Homepage'));
+import Homepage from 'Pages/Homepage/Homepage';
 const Register = lazy(() => import('./Pages/Register/Register'));
 const LogIn = lazy(() => import('./Pages/LogIn/LogIn'));
 const Contacts = lazy(() => import('./Pages/Contacts/Contacts'));
+const NotFoundPage = lazy(() => import('./Pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
   const isLoading = useSelector(getLoadingStatus);
@@ -24,7 +25,7 @@ export const App = () => {
           {/* <Route path="/register" element={<Register />} /> */}
           <Route path="login" element={<LogIn />} />
           <Route path="contacts" element={<Contacts />} />
-          <Route path="*" element={<h1>Not found or still not created.</h1>} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
       {isLoading && (
