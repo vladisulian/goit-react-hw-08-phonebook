@@ -22,11 +22,4 @@ export default Contacts;
         )}
       </div> */}
       
-      {/* {isLoading && (
-        <Spinner
-          color="orange"
-          size={'xl'}
-          emptyColor="orangered"
-          speed="900ms"
-        />
-      )} */}
+   
