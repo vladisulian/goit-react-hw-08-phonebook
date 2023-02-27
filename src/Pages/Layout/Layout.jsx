@@ -23,7 +23,7 @@ export const Layout = () => {
         <p className="header__middle-title">Modern phonebook!</p>
         <nav className="header__nav">
           <NavLink to={'contacts'}>Contacts</NavLink>
-          <NavLink to={''}>Register</NavLink>
+          <NavLink to={'register'}>Register</NavLink>
         </nav>
       </header>
       <Suspense fallback={<h4>Please, wait a bit. Loading...</h4>}>

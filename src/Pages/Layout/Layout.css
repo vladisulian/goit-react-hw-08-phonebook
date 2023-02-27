@@ -16,6 +16,9 @@ body {
   font-size: 26px;
   /* background-color: lawngreen !important; */
   color: white !important;
+  min-height: 100vh !important;
+
+  background-image: url(../../images/bg-image.jpg) !important;
 }
 svg {
   transition: 350ms fill cubic-bezier(0.075, 0.82, 0.165, 1);

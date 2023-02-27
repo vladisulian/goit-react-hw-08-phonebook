@@ -4,6 +4,8 @@
   flex-direction: column;
   align-items: center;
   padding-top: 50px;
+
+  color: white;
 }
 .notFoundPage p {
   font-size: 60px;
@@ -14,4 +16,5 @@
 
 .notFoundPage svg {
   font-size: 80px;
+  margin: 0 15px;
 }
