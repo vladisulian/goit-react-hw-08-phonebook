@@ -8,6 +8,11 @@
   margin: 0;
   padding: 0;
 }
+
+ul {
+  text-decoration: none;
+  list-style-type: none;
+}
 .section {
   padding: 78px 0 150px 0;
 }

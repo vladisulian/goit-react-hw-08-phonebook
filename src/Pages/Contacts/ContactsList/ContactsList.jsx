@@ -5,6 +5,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getContacts, getFilter } from 'redux/selectors';
 import { useEffect } from 'react';
 import { deleteContactAPI, fetchContactsAPI } from 'redux/operations';
+import {
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  Divider,
+  Heading,
+  Image,
+  Stack,
+  Text,
+} from '@chakra-ui/react';
 
 export const ContactsList = () => {
   const dispatch = useDispatch();
@@ -24,35 +35,71 @@ export const ContactsList = () => {
   );
 
   return (
-    <div className="Contacts-list-container">
-      <h1>Contacts</h1>
-
+    <>
       <ul className="Contacts-list">
-        {filteredContacts.map(({ name, id, phone, surname }) => {
+        {filteredContacts.map(({ id, name, phone, surname, image }) => {
+          console.log('filteredContacts', filteredContacts);
           return (
             <li key={id}>
-              <div className="contacts__name">
-                <p>{name}</p>
-                {surname && <p>{surname}</p>}
-              </div>
-
-              <div className="contacts__number">
-                <p>{phone}</p>
-              </div>
-              <button
-                type="button"
-                className="Contacts__delete-button"
-                onClick={() => {
-                  handleDelete(id);
-                }}
+              <Card
+                direction={{ base: 'column', sm: 'row' }}
+                overflow="hidden"
+                variant="outline"
               >
-                Delete contact
-              </button>
+                <Image
+                  className={'Contact-avatar'}
+                  objectFit="cover"
+                  w={'100px !important'}
+                  h={'100px !important'}
+                  borderRadius={50}
+                  maxW={{ base: '100%', sm: '200px' }}
+                  src={image}
+                  alt={`${id} avatar`}
+                />
+                <Divider className="divider-vertical " orientation='vertical' />
+
+                <Stack>
+                  <CardBody>
+                    <Heading size="md">
+                      {name} {surname}
+                    </Heading>
+                    <Divider className="divider" />
+                    <Text py="2">{phone}</Text>
+                  </CardBody>
+
+                  <CardFooter>
+                    <Button variant="solid" colorScheme="blue">
+                      Info
+                    </Button>
+                  </CardFooter>
+                </Stack>
+              </Card>
             </li>
           );
+          // return (
+          //   <li key={id}>
+          //     <div className="contacts__name">
+          //       <p>{name}</p>
+          //       {surname && <p>{surname}</p>}
+          //     </div>
+
+          //     <div className="contacts__number">
+          //       <p>{phone}</p>
+          //     </div>
+          //     <button
+          //       type="button"
+          //       className="Contacts__delete-button"
+          //       onClick={() => {
+          //         handleDelete(id);
+          //       }}
+          //     >
+          //       Delete contact
+          //     </button>
+          //   </li>
+          // );
         })}
       </ul>
-    </div>
+    </>
   );
 };
 

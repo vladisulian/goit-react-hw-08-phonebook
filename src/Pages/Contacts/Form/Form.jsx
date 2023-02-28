@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addContactAPI } from 'redux/operations';
 import styled from 'styled-components';
-import './AddContact.css';
 const {
   Button,
   useDisclosure,

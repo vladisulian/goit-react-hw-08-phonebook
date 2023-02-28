@@ -13,12 +13,9 @@ position: relative
 }`;
 const Contacts = () => {
   return (
-    <Main className="contacts-hero">
+    <Main >
       <Form />
-      {/* <VisuallyHidden> */}
-      {/* <FilterBar /> */}
       <ContactsList />
-      {/* </VisuallyHidden> */}
     </Main>
   );
 };
