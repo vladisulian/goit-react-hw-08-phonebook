@@ -4,8 +4,10 @@ import { Button } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
 
 const Homepage = () => {
-  const handleTextFinish = () =>
-    (document.querySelector('.join-link').style.opacity = 1);
+  const handleTextFinish = () => {
+    document.querySelector('.join-link').style.opacity = 1;
+    document.querySelector('.join-link').style.pointerEvents = 'all'
+  };
 
   return (
     <main className="Homepage__hero">
@@ -17,7 +19,11 @@ const Homepage = () => {
           className="Homepage-title"
         />
 
-        <NavLink to={'register'} style={{ opacity: 0 }} className="join-link">
+        <NavLink
+          to={'register'}
+          style={{ opacity: 0, pointerEvents: 'none' }}
+          className="join-link"
+        >
           <Button
             colorScheme="teal"
             height="100px"
