@@ -16,7 +16,7 @@ const Contacts = () => {
     <Main className="contacts-hero">
       <Form />
       {/* <VisuallyHidden> */}
-      <FilterBar />
+      {/* <FilterBar /> */}
       <ContactsList />
       {/* </VisuallyHidden> */}
     </Main>

@@ -23,11 +23,6 @@ export const ContactsList = () => {
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
-  // const onDeleteClick = () => {
-  //   handleDelete(id);
-
-  // }
-
   return (
     <div className="Contacts-list-container">
       <h1>Contacts</h1>

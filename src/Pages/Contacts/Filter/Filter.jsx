@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import './Filter.css';
 //? redux
 import { useDispatch } from 'react-redux';
@@ -12,7 +11,6 @@ export const FilterBar = () => {
 
   return (
     <>
-      <h3>Find your contacts by name</h3>
       <div className="filter-container">
         <input
           type="text"
@@ -23,8 +21,4 @@ export const FilterBar = () => {
       </div>
     </>
   );
-};
-
-FilterBar.propTypes = {
-  handleChange: PropTypes.func,
 };

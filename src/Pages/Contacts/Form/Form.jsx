@@ -141,6 +141,7 @@ export const Form = () => {
 
 Form.propTypes = {
   name: PropTypes.string,
+  surname: PropTypes.string,
   phone: PropTypes.string,
   onSubmit: PropTypes.func,
 };

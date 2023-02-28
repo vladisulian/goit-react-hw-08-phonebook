@@ -1,9 +1,8 @@
 .filter-container {
+  z-index: 10;
   width: 400px;
   height: 35px;
-  border: 1px solid black;
-  border-radius: 22px;
-  background-color: orange;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,13 +10,22 @@
   align-items: center;
 }
 .filter__input {
-  height: 20px;
+  width: 350px;
+  height: 40px;
+
   padding-left: 15px;
 
-  transition: all 350ms ease;
+  font-family: Labrada;
+  font-size: 16px;
+  color: black;
+
+  outline: none;
+  border-radius: 22px;
+  border: 2px solid transparent;
+  transition: border 450ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
-.filter__input:hover {
-  background: rgb(219, 205, 205);
-  border-color: rgb(31, 140, 177);
+.filter__input:hover,
+.filter__input:focus {
+  border: 2px solid #1a3c9f;
 }
