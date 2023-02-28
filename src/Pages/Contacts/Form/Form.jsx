@@ -2,9 +2,8 @@ import './Form.css';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addContactAPI } from 'redux/operations';
-import { getLoadingStatus } from 'redux/selectors';
 import styled from 'styled-components';
 import './AddContact.css';
 const {
@@ -34,9 +33,9 @@ export const Form = () => {
   const initialRef = useRef(null);
   const finalRef = useRef(null);
 
-  const isLoading = useSelector(getLoadingStatus);
   const dispatch = useDispatch();
   const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
   const [phone, setNumber] = useState('');
 
   const handleChange = e => {
@@ -52,6 +51,10 @@ export const Form = () => {
         setNumber(stateValue);
         break;
 
+      case 'surname':
+        setSurname(stateValue);
+        break;
+
       default:
         return;
     }
@@ -61,8 +64,10 @@ export const Form = () => {
     e.preventDefault();
     const form = e.target;
     const name = form.elements.name.value;
+    const surname = form.elements.surname.value;
     const phone = form.elements.phone.value;
-    const contact = { name, phone };
+    const contact = { name, surname, phone };
+    console.log(contact);
 
     dispatch(addContactAPI(contact));
 
@@ -108,8 +113,12 @@ export const Form = () => {
               </FormControl>
 
               <FormControl mt={4}>
-                <FormLabel>Second name</FormLabel>
-                <Input ref={initialRef} placeholder="Second name" />
+                <FormLabel htmlFor={'surname'}>Surname</FormLabel>
+                <Input
+                  name={'surname'}
+                  ref={initialRef}
+                  placeholder="Surname"
+                />
               </FormControl>
 
               <FormControl mt={4} isRequired>
