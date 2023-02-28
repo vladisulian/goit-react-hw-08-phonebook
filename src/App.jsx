@@ -30,9 +30,9 @@ export const App = () => {
       </Routes>
       {isLoading && (
         <Spinner
-          color="orange"
+          color="#7e0039c2"
           size={'xl'}
-          emptyColor="orangered"
+          emptyColor='gray.200'
           speed="900ms"
         />
       )}

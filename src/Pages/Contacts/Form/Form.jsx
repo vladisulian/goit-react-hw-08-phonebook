@@ -1,12 +1,14 @@
+import { Button } from '@chakra-ui/react';
+import './Form.css';
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Form.css';
 import { useState } from 'react';
-//? redux
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContactAPI } from 'redux/operations';
+import { getLoadingStatus } from 'redux/selectors';
 
 export const Form = () => {
+  const isLoading = useSelector(getLoadingStatus);
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [phone, setNumber] = useState('');
@@ -50,7 +52,7 @@ export const Form = () => {
     <>
       <form
         autoComplete="off"
-        className="Phonebook__form-container"
+        className="Phonebook__form"
         onSubmit={handleSubmit}
       >
         <label htmlFor="name">
@@ -79,9 +81,31 @@ export const Form = () => {
             onChange={handleChange}
           />
         </label>
-        <button type="submit" className="Phonebook__form-submit-button">
+        {!isLoading ? (
+          <Button
+            width={250}
+            borderRadius={20}
+            colorScheme="teal"
+            variant="outline"
+            type="submit"
+          >
+            Submit
+          </Button>
+        ) : (
+          <Button
+            width={250}
+            borderRadius={20}
+            isLoading
+            loadingText="Sending"
+            colorScheme="teal"
+            variant="outline"
+            spinnerPlacement="start"
+          ></Button>
+        )}
+
+        {/* <button type="submit" className="Phonebook__form-submit-button">
           Add contact
-        </button>
+        </button> */}
       </form>
     </>
   );
