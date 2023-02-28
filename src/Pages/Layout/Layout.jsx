@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import './Layout.css';
 import { AiFillHome } from 'react-icons/ai';
 import { Outlet } from 'react-router-dom';
@@ -6,6 +6,8 @@ import { Box } from '@chakra-ui/react';
 import { Suspense } from 'react';
 
 export const Layout = () => {
+  const location = useLocation();
+  const showHomepageHeader = location.pathname === '/goit-react-hw-08-phonebook';
   return (
     <>
       <header>
@@ -20,7 +22,9 @@ export const Layout = () => {
           {/* Home */}
           <AiFillHome />
         </NavLink>
-        <p className="header__middle-title">Modern phonebook!</p>
+        {showHomepageHeader && (
+          <p className="header__middle-title">Modern phonebook!</p>
+        )}
         <nav className="header__nav">
           <NavLink to={'contacts'}>Contacts</NavLink>
           <NavLink to={'register'}>Register</NavLink>

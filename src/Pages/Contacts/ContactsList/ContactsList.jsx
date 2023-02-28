@@ -23,17 +23,24 @@ export const ContactsList = () => {
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
+  // const onDeleteClick = () => {
+  //   handleDelete(id);
+
+  // }
+
   return (
     <div className="Contacts-list-container">
       <h1>Contacts</h1>
 
       <ul className="Contacts-list">
-        {filteredContacts.map(({ name, id, phone }) => {
+        {filteredContacts.map(({ name, id, phone, surname }) => {
           return (
             <li key={id}>
               <div className="contacts__name">
                 <p>{name}</p>
+                {surname && <p>{surname}</p>}
               </div>
+
               <div className="contacts__number">
                 <p>{phone}</p>
               </div>

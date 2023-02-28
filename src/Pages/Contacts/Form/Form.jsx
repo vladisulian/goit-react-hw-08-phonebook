@@ -38,27 +38,27 @@ export const Form = () => {
   const [surname, setSurname] = useState('');
   const [phone, setNumber] = useState('');
 
-  const handleChange = e => {
-    const stateName = e.currentTarget.name;
-    const stateValue = e.currentTarget.value;
+  // const handleChange = e => {
+  //   const stateName = e.currentTarget.name;
+  //   const stateValue = e.currentTarget.value;
 
-    switch (stateName) {
-      case 'name':
-        setName(stateValue);
-        break;
+  //   switch (stateName) {
+  //     case 'name':
+  //       setName(stateValue);
+  //       break;
 
-      case 'phone':
-        setNumber(stateValue);
-        break;
+  //     case 'phone':
+  //       setNumber(stateValue);
+  //       break;
 
-      case 'surname':
-        setSurname(stateValue);
-        break;
+  //     case 'surname':
+  //       setSurname(stateValue);
+  //       break;
 
-      default:
-        return;
-    }
-  };
+  //     default:
+  //       return;
+  //   }
+  // };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -67,7 +67,7 @@ export const Form = () => {
     const surname = form.elements.surname.value;
     const phone = form.elements.phone.value;
     const contact = { name, surname, phone };
-    console.log(contact);
+    console.log('Added contact', contact);
 
     dispatch(addContactAPI(contact));
 
@@ -144,59 +144,3 @@ Form.propTypes = {
   phone: PropTypes.string,
   onSubmit: PropTypes.func,
 };
-
-{
-  /* <form
-        autoComplete="off"
-        className="Phonebook__form"
-        onSubmit={handleSubmit}
-      >
-        <label htmlFor="name">
-          Name <br />
-          <input
-            type="text"
-            name="name"
-            className="Phonebook__form-input"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
-            value={name}
-            onChange={handleChange}
-          />
-        </label>
-        <label htmlFor="phone">
-          Number <br />
-          <input
-            type="tel"
-            name="phone"
-            className="Phonebook__form-input"
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required
-            value={phone}
-            onChange={handleChange}
-          />
-        </label>
-        {!isLoading ? (
-          <Button
-            width={250}
-            borderRadius={20}
-            colorScheme="teal"
-            variant="outline"
-            type="submit"
-          >
-            Submit
-          </Button>
-        ) : (
-          <Button
-            width={250}
-            borderRadius={20}
-            isLoading
-            loadingText="Sending"
-            colorScheme="teal"
-            variant="outline"
-            spinnerPlacement="start"
-          ></Button>
-        )}
-      </form> */
-}
