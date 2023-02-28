@@ -1,4 +1,3 @@
-import { Button } from '@chakra-ui/react';
 import './Form.css';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -6,8 +5,35 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContactAPI } from 'redux/operations';
 import { getLoadingStatus } from 'redux/selectors';
+import styled from 'styled-components';
+import './AddContact.css';
+const {
+  Button,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  FormControl,
+  FormLabel,
+  Input,
+  ModalFooter,
+} = require('@chakra-ui/react');
+const { useRef } = require('react');
+const AddContactContainer = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: black;
+`;
 
 export const Form = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const initialRef = useRef(null);
+  const finalRef = useRef(null);
+
   const isLoading = useSelector(getLoadingStatus);
   const dispatch = useDispatch();
   const [name, setName] = useState('');
@@ -41,6 +67,7 @@ export const Form = () => {
     dispatch(addContactAPI(contact));
 
     reset();
+    onClose();
   };
 
   const reset = () => {
@@ -49,8 +76,68 @@ export const Form = () => {
   };
 
   return (
-    <>
-      <form
+    <AddContactContainer>
+      <Button
+        onClick={onOpen}
+        fontSize={36}
+        borderRadius={'45%'}
+        color={'black'}
+      >
+        +
+      </Button>
+
+      <Modal
+        initialFocusRef={initialRef}
+        finalFocusRef={finalRef}
+        isOpen={isOpen}
+        onClose={onClose}
+      >
+        <ModalOverlay />
+        <form autoComplete="off" onSubmit={handleSubmit}>
+          <ModalContent>
+            <ModalHeader>Add to contacts</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody pb={6}>
+              <FormControl isRequired>
+                <FormLabel htmlFor={'name'}>First name</FormLabel>
+                <Input
+                  name={'name'}
+                  ref={initialRef}
+                  placeholder="First name"
+                />
+              </FormControl>
+
+              <FormControl mt={4}>
+                <FormLabel>Second name</FormLabel>
+                <Input ref={initialRef} placeholder="Second name" />
+              </FormControl>
+
+              <FormControl mt={4} isRequired>
+                <FormLabel htmlFor={'phone'}>Phone number</FormLabel>
+                <Input name={'phone'} placeholder="Last name" />
+              </FormControl>
+            </ModalBody>
+
+            <ModalFooter justifyContent={'center'}>
+              <Button colorScheme="blue" mr={3} w={150} type="submit">
+                Add
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </form>
+      </Modal>
+    </AddContactContainer>
+  );
+};
+
+Form.propTypes = {
+  name: PropTypes.string,
+  phone: PropTypes.string,
+  onSubmit: PropTypes.func,
+};
+
+{
+  /* <form
         autoComplete="off"
         className="Phonebook__form"
         onSubmit={handleSubmit}
@@ -102,17 +189,5 @@ export const Form = () => {
             spinnerPlacement="start"
           ></Button>
         )}
-
-        {/* <button type="submit" className="Phonebook__form-submit-button">
-          Add contact
-        </button> */}
-      </form>
-    </>
-  );
-};
-
-Form.propTypes = {
-  name: PropTypes.string,
-  phone: PropTypes.string,
-  onSubmit: PropTypes.func,
-};
+      </form> */
+}

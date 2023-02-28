@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { VisuallyHidden, VisuallyHiddenInput } from '@chakra-ui/react';
-import { AddContact } from './AddContact/AddContact';
 const { ContactsList } = require('./ContactsList/ContactsList');
 const { FilterBar } = require('./Filter/Filter');
 const { Form } = require('./Form/Form');
@@ -16,7 +15,6 @@ const Contacts = () => {
   return (
     <Main className="contacts-hero">
       <Form />
-      <AddContact />
       {/* <VisuallyHidden> */}
       <FilterBar />
       <ContactsList />
