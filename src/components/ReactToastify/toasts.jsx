@@ -8,3 +8,14 @@ export const toastSuccess = {
   progress: undefined,
   theme: 'dark',
 };
+
+export const toastError = {
+  position: 'top-right',
+  autoClose: 1500,
+  hideProgressBar: true,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: 'dark',
+};

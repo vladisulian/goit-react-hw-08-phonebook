@@ -2,7 +2,7 @@ import { URL } from 'API/FetchAPI';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { toastSuccess } from 'components/ReactToastify/toasts';
+import { toastError, toastSuccess } from 'components/ReactToastify/toasts';
 
 export const fetchContactsAPI = createAsyncThunk(
   'contacts/fetchAll',
@@ -22,7 +22,7 @@ export const addContactAPI = createAsyncThunk(
       .catch(error => console.error(error));
     response.status === 201
       ? toast.success('Contact added! ', toastSuccess)
-      : toast.error('Something went wrong :(', toastSuccess);
+      : toast.error('Something went wrong :(', toastError);
     // console.log('response.data from addContact(operations)', response.data);
     return response.data;
   }

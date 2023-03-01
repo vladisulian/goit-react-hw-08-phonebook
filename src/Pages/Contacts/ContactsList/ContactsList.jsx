@@ -26,8 +26,7 @@ export const ContactsList = () => {
 
   // update contacts
   useEffect(() => {
-    dispatch(fetchContactsAPI());
-    // dispatch in hook dependency will update contacts-list
+    dispatch(fetchContactsAPI()); // dispatch in hook dependency will update contacts-list
   }, [dispatch]);
 
   const handleDelete = id => dispatch(deleteContactAPI(id));
