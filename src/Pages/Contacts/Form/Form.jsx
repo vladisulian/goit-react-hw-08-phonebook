@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addContactAPI } from 'redux/operations';
+
+import { AiOutlineUserAdd } from 'react-icons/ai';
 import styled from 'styled-components';
 const {
   Button,
@@ -19,15 +21,17 @@ const {
   Input,
   ModalFooter,
 } = require('@chakra-ui/react');
-const { useRef } = require('react');
 const AddContactContainer = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
   color: black;
+  margin-right: 15px;
 `;
+// position: absolute;
+// top: 0;
+// right: 0;
 
-export const Form = () => {
+const { useRef } = require('react');
+
+export const AddContactForm = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = useRef(null);
   const finalRef = useRef(null);
@@ -58,14 +62,15 @@ export const Form = () => {
   };
 
   return (
-    <AddContactContainer>
+    <AddContactContainer className="add-contacts-container">
       <Button
         onClick={onOpen}
         fontSize={36}
         borderRadius={'45%'}
         color={'black'}
+        style={{ width: '52px', borderRadius: '5px' }}
       >
-        +
+        <AiOutlineUserAdd style={{ minWidth: '50px' }} />
       </Button>
 
       <Modal
@@ -116,7 +121,7 @@ export const Form = () => {
   );
 };
 
-Form.propTypes = {
+AddContactForm.propTypes = {
   name: PropTypes.string,
   surname: PropTypes.string,
   phone: PropTypes.string,

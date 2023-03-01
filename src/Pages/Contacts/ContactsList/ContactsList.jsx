@@ -1,5 +1,6 @@
 import './ContactsList.css';
 import PropTypes from 'prop-types';
+import Pagination from 'react-paginate';
 //? redux
 import { useDispatch, useSelector } from 'react-redux';
 import { getContacts, getFilter } from 'redux/selectors';
@@ -64,7 +65,7 @@ export const ContactsList = () => {
 
                 <Stack>
                   <CardBody>
-                    <Heading size="md">
+                    <Heading size="md" style={{ textAlign: 'start' }}>
                       {name} {surname}
                     </Heading>
                     <Divider className="divider" />

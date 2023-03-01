@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { VisuallyHidden, VisuallyHiddenInput } from '@chakra-ui/react';
 const { ContactsList } = require('./ContactsList/ContactsList');
 const { FilterBar } = require('./Filter/Filter');
-const { Form } = require('./Form/Form');
+const { AddContactForm } = require('./Form/Form');
 
 const Main = styled.main`
 display: flex;
@@ -13,8 +13,7 @@ position: relative
 }`;
 const Contacts = () => {
   return (
-    <Main >
-      <Form />
+    <Main>
       <ContactsList />
     </Main>
   );
