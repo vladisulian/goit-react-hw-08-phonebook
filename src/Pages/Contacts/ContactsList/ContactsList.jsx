@@ -38,7 +38,7 @@ export const ContactsList = () => {
     <>
       <ul className="Contacts-list">
         {filteredContacts.map(({ id, name, phone, surname, image }) => {
-          console.log('filteredContacts', filteredContacts);
+          // console.log('filteredContacts', filteredContacts);
           return (
             <li key={id}>
               <Card
@@ -46,17 +46,21 @@ export const ContactsList = () => {
                 overflow="hidden"
                 variant="outline"
               >
-                <Image
-                  className={'Contact-avatar'}
-                  objectFit="cover"
-                  w={'100px !important'}
-                  h={'100px !important'}
-                  borderRadius={50}
-                  maxW={{ base: '100%', sm: '200px' }}
-                  src={image}
-                  alt={`${id} avatar`}
-                />
-                <Divider className="divider-vertical " orientation='vertical' />
+                {image ? (
+                  <Image
+                    className={'Contact-avatar'}
+                    objectFit="cover"
+                    w={'100px !important'}
+                    h={'100px !important'}
+                    borderRadius={50}
+                    maxW={{ base: '100%', sm: '200px' }}
+                    src={image}
+                    alt={`${id} avatar`}
+                  />
+                ) : (
+                  ''
+                )}
+                <Divider className="divider-vertical " orientation="vertical" />
 
                 <Stack>
                   <CardBody>

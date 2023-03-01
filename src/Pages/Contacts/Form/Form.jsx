@@ -37,28 +37,6 @@ export const Form = () => {
   const [surname, setSurname] = useState('');
   const [phone, setNumber] = useState('');
 
-  // const handleChange = e => {
-  //   const stateName = e.currentTarget.name;
-  //   const stateValue = e.currentTarget.value;
-
-  //   switch (stateName) {
-  //     case 'name':
-  //       setName(stateValue);
-  //       break;
-
-  //     case 'phone':
-  //       setNumber(stateValue);
-  //       break;
-
-  //     case 'surname':
-  //       setSurname(stateValue);
-  //       break;
-
-  //     default:
-  //       return;
-  //   }
-  // };
-
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
