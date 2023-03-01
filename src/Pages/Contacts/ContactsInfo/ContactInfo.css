@@ -1,0 +1,44 @@
+.contact-info {
+  position: relative;
+  width: 600px;
+  height: 500px;
+
+  border-radius: 15px;
+
+  padding: 15px;
+  margin-top: 55px;
+
+
+  color: black;
+  background: white;
+}
+.info__backlink {
+  position: absolute;
+  left: -5px;
+  top: -40px;
+
+  width: 40px;
+}
+.info__backlink:hover svg {
+  fill: teal;
+}
+.info__backlink svg {
+  width: 40px;
+  height: 40px;
+  fill: white;
+}
+.info {
+  display: contents;
+}
+.info svg {
+  width: 20px;
+}
+.job {
+  font-size: 20px;
+}
+.phone {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding-left: 10px;
+}

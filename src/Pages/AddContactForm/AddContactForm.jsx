@@ -1,4 +1,4 @@
-import './Form.css';
+import './AddContactForm.css';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
@@ -110,7 +110,7 @@ export const AddContactForm = () => {
 
             <ModalFooter justifyContent={'center'}>
               <Button colorScheme="blue" mr={3} w={150} type="submit">
-                Add
+                Save
               </Button>
             </ModalFooter>
           </ModalContent>

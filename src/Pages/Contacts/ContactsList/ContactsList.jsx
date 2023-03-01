@@ -17,10 +17,11 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const ContactsList = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
   const contacts = useSelector(selectContacts);
 
   // update contacts
@@ -74,7 +75,7 @@ export const ContactsList = () => {
                   </CardBody>
 
                   <CardFooter>
-                    <Link to={`${id}`}>
+                    <Link to={`${id}`} state={{ from: location }}>
                       <Button variant="solid" colorScheme="blue">
                         Info
                       </Button>

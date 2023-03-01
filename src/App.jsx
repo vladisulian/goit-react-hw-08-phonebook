@@ -1,6 +1,10 @@
 // chakra
 import { Spinner } from '@chakra-ui/react';
 import './components/ChakraUI/spinner.css';
+// toast
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Flip } from 'react-toastify';
 // react
 import React from 'react';
 import { useSelector } from 'react-redux';
@@ -11,6 +15,7 @@ import { Layout } from 'Pages/Layout/Layout';
 // lazy pages
 import Homepage from 'Pages/Homepage/Homepage';
 import ContactInfo from 'Pages/Contacts/ContactsInfo/ContactInfo';
+
 const Register = lazy(() => import('./Pages/Register/Register'));
 const LogIn = lazy(() => import('./Pages/LogIn/LogIn'));
 const Contacts = lazy(() => import('./Pages/Contacts/Contacts'));
@@ -30,6 +35,19 @@ export const App = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
+      <ToastContainer
+        position="top-right"
+        transition={Flip}
+        autoClose={1000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       {isLoading && (
         <Spinner
           color="#7e0039c2"

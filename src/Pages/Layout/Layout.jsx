@@ -1,4 +1,5 @@
 import './Layout.css';
+
 import { Outlet } from 'react-router-dom';
 import { Spinner } from '@chakra-ui/react';
 import { Suspense } from 'react';
@@ -18,6 +19,7 @@ export const Layout = () => {
           />
         }
       >
+       
         <Outlet />
       </Suspense>
     </>
