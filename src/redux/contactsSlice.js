@@ -4,12 +4,14 @@ import {
   fetchContactsAPI,
   addContactAPI,
   deleteContactAPI,
+  fetchContactInfoAPI,
 } from './operations';
 
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState: {
     contacts: [],
+    contactInfo: {},
     isLoading: false,
     error: null,
   },
@@ -37,7 +39,7 @@ const contactsSlice = createSlice({
       .addCase(addContactAPI.rejected, state => {
         state.isLoading = false;
       })
-      
+
       .addCase(deleteContactAPI.pending, state => {
         state.isLoading = true;
       })
@@ -48,6 +50,17 @@ const contactsSlice = createSlice({
         );
       })
       .addCase(deleteContactAPI.rejected, state => {
+        state.isLoading = false;
+      })
+
+      .addCase(fetchContactInfoAPI.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(fetchContactInfoAPI.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.contactInfo = action.payload;
+      })
+      .addCase(fetchContactInfoAPI.rejected, state => {
         state.isLoading = false;
       });
   },

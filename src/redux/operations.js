@@ -24,6 +24,18 @@ export const addContactAPI = createAsyncThunk(
   }
 );
 
+export const fetchContactInfoAPI = createAsyncThunk(
+  'contact/info',
+  async contactID => {
+    const response = await axios
+      .get(`${URL}/${contactID}`)
+      .catch(error => console.error(error));
+   
+      console.log(response.data)
+      return response.data;
+  }
+);
+
 export const deleteContactAPI = createAsyncThunk(
   'contacts/deleteContact',
   async contactId => {

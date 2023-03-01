@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Pagination from 'react-paginate';
 //? redux
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts, getFilter } from 'redux/selectors';
+import { selectContacts, selectFilter } from 'redux/selectors';
 import { useEffect } from 'react';
 import { deleteContactAPI, fetchContactsAPI } from 'redux/operations';
 import {
@@ -17,10 +17,11 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 export const ContactsList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   // update contacts
   useEffect(() => {
@@ -29,7 +30,7 @@ export const ContactsList = () => {
   }, [dispatch]);
 
   const handleDelete = id => dispatch(deleteContactAPI(id));
-  const filter = useSelector(getFilter);
+  const filter = useSelector(selectFilter);
 
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
@@ -73,9 +74,11 @@ export const ContactsList = () => {
                   </CardBody>
 
                   <CardFooter>
-                    <Button variant="solid" colorScheme="blue">
-                      Info
-                    </Button>
+                    <Link to={`${id}`}>
+                      <Button variant="solid" colorScheme="blue">
+                        Info
+                      </Button>
+                    </Link>
                   </CardFooter>
                 </Stack>
               </Card>

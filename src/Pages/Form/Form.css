@@ -1,6 +1,9 @@
 .chakra-modal__content {
   background: black !important;
 }
+.modal-close-button:hover {
+  background: #006c8b;
+}
 .Phonebook-container {
   display: flex;
   flex-direction: column;

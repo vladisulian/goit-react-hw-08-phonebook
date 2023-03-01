@@ -1,5 +1,5 @@
-import { FilterBar } from 'Pages/Contacts/Filter/Filter';
-import { AddContactForm } from 'Pages/Contacts/Form/Form';
+import { FilterBar } from 'Pages/Filter/Filter';
+import { AddContactForm } from 'Pages/Form/Form';
 
 const ContactsHeader = () => {
   return (

@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addContactAPI } from 'redux/operations';
-
 import { AiOutlineUserAdd } from 'react-icons/ai';
 import styled from 'styled-components';
 const {
@@ -83,7 +82,7 @@ export const AddContactForm = () => {
         <form autoComplete="off" onSubmit={handleSubmit}>
           <ModalContent>
             <ModalHeader>Add to contacts</ModalHeader>
-            <ModalCloseButton />
+            <ModalCloseButton className='modal-close-button'/>
             <ModalBody pb={6}>
               <FormControl isRequired>
                 <FormLabel htmlFor={'name'}>First name</FormLabel>
