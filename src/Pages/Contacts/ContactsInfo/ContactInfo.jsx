@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 //
 import './ContactInfo.css';
 import { BsFillTelephoneFill, BsFillCameraVideoFill } from 'react-icons/bs';
+import { GrMapLocation } from 'react-icons/gr';
+import { MdWork, MdLocationCity } from 'react-icons/md';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { RiMessage2Fill } from 'react-icons/ri';
 import { Button, Divider } from '@chakra-ui/react';
@@ -24,7 +26,7 @@ const ContactInfo = () => {
     dispatch(fetchContactInfoAPI(contactID));
   }, [dispatch, contactID]);
 
-  const { name, surname, image, phone, createdAt, id, job } = contactInfo;
+  const { name, surname, image, phone, country, city, job } = contactInfo;
   return (
     <>
       <div className="contact-info">
@@ -33,10 +35,12 @@ const ContactInfo = () => {
         </Link>
         <div className="info">
           <img src={image} alt="contact avatar" />
-          <p className='name'>
+          <p>
             {name} {surname}
           </p>
+
           <Divider className="divider" />
+
           <div className="actions">
             <Button>
               <BsFillTelephoneFill className="actions__call" />
@@ -53,10 +57,26 @@ const ContactInfo = () => {
           </div>
           <Divider className="divider" />
 
-          <p className="job">{job}</p>
-          <p className="phone">
-            <BsFillTelephoneFill /> {phone}
-          </p>
+          <div className="about">
+            <ul>
+              <li>
+                <MdWork className="job-icon" />
+                Job role: <span>{job}</span>
+              </li>
+              <li>
+                <BsFillTelephoneFill className="phone-icon" /> Number:
+                <span>{phone}</span>
+              </li>
+              <li>
+                <GrMapLocation className="country-icon" /> Country:
+                <span>{country}</span>
+              </li>
+              <li>
+                <MdLocationCity className="city-icon" /> City:
+                <span>{city}</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </>

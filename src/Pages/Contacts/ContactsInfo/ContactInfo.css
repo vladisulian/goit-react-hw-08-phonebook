@@ -5,7 +5,7 @@
   align-items: center;
 
   width: 600px;
-  height: 500px;
+  height: 600px;
 
   border-radius: 15px;
 
@@ -38,20 +38,36 @@
   border-radius: 50%;
   margin-bottom: 25px;
 }
-.info svg {
-  width: 20px;
-}
-.name {
-  margin-bottom: 25px;
-}
-.job {
+.about {
+  width: 100%;
   font-size: 20px;
 }
-.phone {
+.about svg {
+  width: 25px;
+}
+.about ul li {
   display: flex;
-  gap: 15px;
   align-items: center;
-  padding-left: 10px;
+  gap: 10px;
+
+  font-weight: 500;
+}
+.about ul li span {
+  font-size: 18px;
+  font-weight: 400;
+  font-style: italic;
+}
+.job-icon {
+  height: 25px;
+}
+.phone-icon {
+  height: 22px;
+}
+.country-icon {
+  height: 25px;
+}
+.city-icon {
+  height: 30px;
 }
 
 .contact-info .divider {
@@ -70,7 +86,6 @@
   flex-direction: column;
   width: 80px;
   height: 80px;
-
 }
 .actions button svg {
   fill: blue;
