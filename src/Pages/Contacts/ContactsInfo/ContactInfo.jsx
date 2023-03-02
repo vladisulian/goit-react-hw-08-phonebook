@@ -10,6 +10,7 @@ import { BsFillTelephoneFill, BsFillCameraVideoFill } from 'react-icons/bs';
 import { GrMapLocation } from 'react-icons/gr';
 import { MdWork, MdLocationCity } from 'react-icons/md';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { FiArrowLeftCircle } from 'react-icons/fi';
 import { RiMessage2Fill } from 'react-icons/ri';
 import { Button, Divider } from '@chakra-ui/react';
 
@@ -34,7 +35,7 @@ const ContactInfo = () => {
     <>
       <div className="contact-info">
         <Link to={backLink} className="info__backlink">
-          <AiOutlineCloseCircle />
+          <FiArrowLeftCircle />
         </Link>
         <div className="info">
           <img src={image} alt="contact avatar" />

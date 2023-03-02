@@ -17,9 +17,7 @@
 }
 .info__backlink {
   position: absolute;
-  left: -5px;
-  top: -40px;
-
+  left: 15px;
   width: 40px;
 }
 .info__backlink:hover svg {
@@ -40,13 +38,11 @@
 }
 .about {
   width: 100%;
+  margin-bottom: 25px;
   font-size: 20px;
 }
 .about svg {
   width: 25px;
-}
-.about ul {
-  margin-bottom: 35px;
 }
 .about ul li {
   display: flex;
