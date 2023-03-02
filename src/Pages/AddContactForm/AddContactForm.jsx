@@ -24,10 +24,6 @@ const AddContactContainer = styled.div`
   color: black;
   margin-right: 15px;
 `;
-// position: absolute;
-// top: 0;
-// right: 0;
-
 const { useRef } = require('react');
 
 export const AddContactForm = () => {
@@ -90,6 +86,8 @@ export const AddContactForm = () => {
                   name={'name'}
                   ref={initialRef}
                   placeholder="First name"
+                  pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                  title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                 />
               </FormControl>
 
@@ -108,6 +106,7 @@ export const AddContactForm = () => {
                   name={'phone'}
                   placeholder="+(380)-123-45-67"
                   type={'number'}
+                  title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                 />
               </FormControl>
             </ModalBody>

@@ -35,7 +35,7 @@ export const fetchContactInfoAPI = createAsyncThunk(
       .get(`${URL}/${contactID}`)
       .catch(error => console.error(error));
 
-    console.log('response.data from operations.js', response.data);
+    // console.log('response.data from operations.js', response.data);
     return response.data;
   }
 );
