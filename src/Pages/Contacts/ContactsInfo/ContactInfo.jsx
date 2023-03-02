@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useParams } from 'react-router';
-import { fetchContactInfoAPI } from 'redux/operations';
+import { useLocation, useNavigate, useParams } from 'react-router';
+import { deleteContactAPI, fetchContactInfoAPI } from 'redux/operations';
 import { selectContactInfo } from 'redux/selectors';
 import { Link } from 'react-router-dom';
 //
@@ -16,8 +16,11 @@ import { Button, Divider } from '@chakra-ui/react';
 const ContactInfo = () => {
   const dispatch = useDispatch();
   const { contactID } = useParams(); // * contactID is an object type !
-  const contactInfo = useSelector(selectContactInfo);
   const location = useLocation();
+  const navigate = useNavigate();
+  const contactInfo = useSelector(selectContactInfo);
+
+  const handleDelete = id => dispatch(deleteContactAPI(id));
 
   const backLink =
     location.state?.from ?? '/goit-react-hw-08-phonebook/contacts';
@@ -26,7 +29,7 @@ const ContactInfo = () => {
     dispatch(fetchContactInfoAPI(contactID));
   }, [dispatch, contactID]);
 
-  const { name, surname, image, phone, country, city, job } = contactInfo;
+  const { id, name, surname, image, phone, country, city, job } = contactInfo;
   return (
     <>
       <div className="contact-info">
@@ -77,6 +80,15 @@ const ContactInfo = () => {
               </li>
             </ul>
           </div>
+          <Button
+            colorScheme={'red'}
+            onClick={() => {
+              handleDelete(id);
+              navigate('/goit-react-hw-08-phonebook/contacts');
+            }}
+          >
+            Delete contact
+          </Button>
         </div>
       </div>
     </>

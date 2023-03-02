@@ -47,7 +47,7 @@ export const deleteContactAPI = createAsyncThunk(
       .delete(`${URL}/${contactId}`)
       .catch(error => console.error(error));
     // console.log('Contact deleted. ID is =>', contactId);
-
+    toast.success('Contact deleted! ', toastSuccess);
     return contactId;
   }
 );

@@ -24,12 +24,11 @@ export const ContactsList = () => {
   const location = useLocation();
   const contacts = useSelector(selectContacts);
 
-  // update contacts
+  //* update contacts
   useEffect(() => {
-    dispatch(fetchContactsAPI()); // dispatch in hook dependency will update contacts-list
+    dispatch(fetchContactsAPI()); //* dispatch in hook dependency will update contacts-list
   }, [dispatch]);
 
-  const handleDelete = id => dispatch(deleteContactAPI(id));
   const filter = useSelector(selectFilter);
 
   const filteredContacts = contacts.filter(contact =>

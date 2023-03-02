@@ -45,6 +45,9 @@
 .about svg {
   width: 25px;
 }
+.about ul {
+  margin-bottom: 35px;
+}
 .about ul li {
   display: flex;
   align-items: center;
