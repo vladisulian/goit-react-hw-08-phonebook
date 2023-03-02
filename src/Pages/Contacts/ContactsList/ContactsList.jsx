@@ -84,27 +84,6 @@ export const ContactsList = () => {
               </Card>
             </li>
           );
-          // return (
-          //   <li key={id}>
-          //     <div className="contacts__name">
-          //       <p>{name}</p>
-          //       {surname && <p>{surname}</p>}
-          //     </div>
-
-          //     <div className="contacts__number">
-          //       <p>{phone}</p>
-          //     </div>
-          //     <button
-          //       type="button"
-          //       className="Contacts__delete-button"
-          //       onClick={() => {
-          //         handleDelete(id);
-          //       }}
-          //     >
-          //       Delete contact
-          //     </button>
-          //   </li>
-          // );
         })}
       </ul>
     </>

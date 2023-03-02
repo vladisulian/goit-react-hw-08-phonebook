@@ -13,13 +13,11 @@
   min-width: 400px;
 }
 .Contact-avatar {
-  margin: auto 5px auto 10px;
+  margin: auto 5px auto 20px;
 }
 
 .divider {
-  /* margin-top: 50px; */
   border-width: 0px 0px 0px 25px;
-  /* border-image: initial; */
   border-color: inherit;
 }
 

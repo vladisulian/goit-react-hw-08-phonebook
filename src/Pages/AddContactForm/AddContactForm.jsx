@@ -82,7 +82,7 @@ export const AddContactForm = () => {
         <form autoComplete="off" onSubmit={handleSubmit}>
           <ModalContent>
             <ModalHeader>Add to contacts</ModalHeader>
-            <ModalCloseButton className='modal-close-button'/>
+            <ModalCloseButton className="modal-close-button" />
             <ModalBody pb={6}>
               <FormControl isRequired>
                 <FormLabel htmlFor={'name'}>First name</FormLabel>
@@ -104,7 +104,11 @@ export const AddContactForm = () => {
 
               <FormControl mt={4} isRequired>
                 <FormLabel htmlFor={'phone'}>Phone number</FormLabel>
-                <Input name={'phone'} placeholder="+(380)-123-45-67" type={'number'} />
+                <Input
+                  name={'phone'}
+                  placeholder="+(380)-123-45-67"
+                  type={'number'}
+                />
               </FormControl>
             </ModalBody>
 

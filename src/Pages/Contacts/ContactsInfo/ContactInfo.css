@@ -63,23 +63,25 @@
   display: flex;
   gap: 80px;
 
-margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 .actions button {
   display: flex;
   flex-direction: column;
   width: 80px;
-  height: 70px;
+  height: 80px;
+
 }
-.actions svg {
+.actions button svg {
   fill: blue;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 .actions__call {
   width: 20px;
   height: 20px;
 }
-.actions__text, .actions_video {
+.info .actions__text,
+.info .actions__video {
   width: 25px;
   height: 25px;
 }
