@@ -104,7 +104,7 @@ export const AddContactForm = () => {
 
               <FormControl mt={4} isRequired>
                 <FormLabel htmlFor={'phone'}>Phone number</FormLabel>
-                <Input name={'phone'} placeholder="Last name" />
+                <Input name={'phone'} placeholder="+(380)-123-45-67" type={'number'} />
               </FormControl>
             </ModalBody>
 
