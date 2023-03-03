@@ -32,7 +32,7 @@ const ContactInfo = () => {
   const { id, name, surname, image, phone, country, city, job } = contactInfo;
   return (
     <>
-      {contactInfo.hasOwnProperty('name') && (
+      {contactInfo.hasOwnProperty('id') && (
         <div className="contact-info">
           <Link to={backLink} className="info__backlink">
             <FiArrowLeftCircle />
