@@ -1,3 +1,6 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { resetContactInfo } from 'redux/contactsSlice';
 import styled from 'styled-components';
 const { ContactsList } = require('./ContactsList/ContactsList');
 
@@ -9,6 +12,8 @@ align-items: center;
 position: relative
 }`;
 const Contacts = () => {
+
+
   return (
     <Main>
       <ContactsList />
@@ -17,13 +22,3 @@ const Contacts = () => {
 };
 
 export default Contacts;
-
-{
-  /* <div className="Phonebook-container">
-        <h1 className="Phonebook__title">Phonebook</h1>
-        <Form />
-        <FilterBar />
-        <ContactsList />
-        )}
-      </div> */
-}

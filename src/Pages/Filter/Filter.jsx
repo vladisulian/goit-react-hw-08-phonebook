@@ -16,6 +16,7 @@ export const FilterBar = () => {
           type="text"
           name="filter"
           className="filter__input"
+          placeholder='Filter by name'
           onChange={handleChangeFilter}
         />
       </div>

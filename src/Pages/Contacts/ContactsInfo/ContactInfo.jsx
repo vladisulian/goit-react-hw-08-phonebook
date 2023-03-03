@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate, useParams } from 'react-router';
 import { deleteContactAPI, fetchContactInfoAPI } from 'redux/operations';
@@ -9,7 +9,6 @@ import './ContactInfo.css';
 import { BsFillTelephoneFill, BsFillCameraVideoFill } from 'react-icons/bs';
 import { GrMapLocation } from 'react-icons/gr';
 import { MdWork, MdLocationCity } from 'react-icons/md';
-import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { FiArrowLeftCircle } from 'react-icons/fi';
 import { RiMessage2Fill } from 'react-icons/ri';
 import { Button, Divider } from '@chakra-ui/react';

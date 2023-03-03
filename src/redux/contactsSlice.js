@@ -14,6 +14,12 @@ const contactsSlice = createSlice({
     isLoading: false,
     error: null,
   },
+  reducers: {
+    resetContactInfo(state) {
+      state.contactInfo = {};
+      // console.log(state.contactInfo);
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchContactsAPI.pending, state => {
@@ -65,4 +71,5 @@ const contactsSlice = createSlice({
   },
 });
 
+export const { resetContactInfo } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;

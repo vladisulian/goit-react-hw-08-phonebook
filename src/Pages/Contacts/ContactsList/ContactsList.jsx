@@ -5,7 +5,7 @@ import Pagination from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts, selectFilter } from 'redux/selectors';
 import { useEffect } from 'react';
-import { deleteContactAPI, fetchContactsAPI } from 'redux/operations';
+import { fetchContactsAPI } from 'redux/operations';
 import {
   Button,
   Card,
@@ -18,17 +18,20 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { Link, useLocation } from 'react-router-dom';
+import { resetContactInfo } from 'redux/contactsSlice';
 
 export const ContactsList = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const contacts = useSelector(selectContacts);
-
   //* update contacts
   useEffect(() => {
-    dispatch(fetchContactsAPI()); //* dispatch in hook dependency will update contacts-list
+    dispatch(fetchContactsAPI()); //* dispatch in hook dependency will update contacts-list.
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(resetContactInfo()); //* reset contact info
+  }, [dispatch]);
   const filter = useSelector(selectFilter);
 
   const filteredContacts = contacts.filter(contact =>

@@ -38,4 +38,6 @@ header {
   
     display: flex;
     gap: 35px;
+
+    font-size: 20px;
   }
