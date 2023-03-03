@@ -70,3 +70,7 @@
   background: rgb(219, 205, 205);
   border-color: rgb(31, 140, 177);
 }
+
+.AddContactButton:hover {
+  background: rgb(132 127 127 / 30%);
+}

@@ -34,7 +34,7 @@ export const AddContactForm = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
-  const [phone, setNumber] = useState('');
+  const [phone, setPhone] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -43,8 +43,7 @@ export const AddContactForm = () => {
     const surname = form.elements.surname.value;
     const phone = form.elements.phone.value;
     const contact = { name, surname, phone };
-    console.log('Added contact', contact);
-
+    // console.log('Added contact', contact);
     dispatch(addContactAPI(contact));
 
     reset();
@@ -53,7 +52,8 @@ export const AddContactForm = () => {
 
   const reset = () => {
     setName('');
-    setNumber('');
+    setSurname('');
+    setPhone('');
   };
 
   return (
@@ -62,10 +62,12 @@ export const AddContactForm = () => {
         onClick={onOpen}
         fontSize={36}
         borderRadius={'45%'}
+        colorScheme={'rgb(0 0 0 / 35%);'}
         color={'black'}
         style={{ width: '52px', borderRadius: '5px' }}
+        className={'AddContactButton'}
       >
-        <AiOutlineUserAdd style={{ minWidth: '50px' }} />
+        <AiOutlineUserAdd style={{ minWidth: '50px', fill: 'white' }} />
       </Button>
 
       <Modal
