@@ -72,5 +72,5 @@
 }
 
 .AddContactButton:hover {
-  background: rgb(132 127 127 / 30%);
+  background: rgb(132 127 127 / 30%) !important;
 }
