@@ -21,7 +21,7 @@ export const Header = () => {
         className="chakra_gradient"
       />
 
-      <NavLink to={''} className="header__logo">
+      <NavLink to={''} end className="header__logo">
         <AiFillHome />
       </NavLink>
 
