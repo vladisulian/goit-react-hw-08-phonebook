@@ -1,40 +1,58 @@
 import './Registration.scss';
 import { Button, FormControl, FormLabel, Input } from '@chakra-ui/react';
+import { Checkbox } from '@chakra-ui/react';
+import { NavLink } from 'react-router-dom';
 
 const Register = () => {
   const handleSubmit = event => {
     event.preventDefault();
     console.log('Registration POST method sended.');
   };
+
   return (
     <form autoComplete="off" onSubmit={handleSubmit} id={'reg-form'}>
-      <h1>Your contacts are always in your hands!</h1>
-      <FormControl className='form-control' isRequired>
-        <FormLabel htmlFor={'nickname'}>Nickname</FormLabel>
+      <h1>Create your MPK account.</h1>
+      <FormLabel htmlFor={'nickname'}>
+        Nickname
         <Input
+          type={'text'}
           name={'nickname'}
           placeholder="programmer2301"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required
         />
-      </FormControl>
+      </FormLabel>
 
-      <FormControl className='form-control' mt={4} isRequired>
-        <FormLabel htmlFor={'email'}>Email</FormLabel>
-        <Input name={'email'} placeholder="example@mail.com" />
-      </FormControl>
+      <FormLabel htmlFor={'email'}>
+        Email
+        <Input
+          name={'email'}
+          placeholder="example@mail.com"
+          type={'email'}
+          required
+        />
+      </FormLabel>
 
-      <FormControl className='form-control' mt={4} isRequired>
-        <FormLabel htmlFor={'password'}>Password</FormLabel>
+      <FormLabel htmlFor={'password'}>
+        Password
         <Input
           name={'password'}
           placeholder="*********"
           type={'password'}
+          required
         />
-      </FormControl>
+      </FormLabel>
+
+      <Checkbox required>
+        I accept the terms of the
+        <NavLink to={'/goit-react-hw-08-phonebook/agreement'}>
+          MPK agreement
+        </NavLink>
+      </Checkbox>
 
       <Button colorScheme="blue" mr={3} w={150} type="submit">
-        Save
+        Create account
       </Button>
     </form>
   );
