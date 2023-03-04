@@ -30,7 +30,7 @@ export const Header = () => {
 
       <nav className="header__nav">
         <NavLink to={'contacts'}>Contacts</NavLink>
-        <NavLink to={'register'}>Register</NavLink>
+        <NavLink to={'registration'}>Register</NavLink>
       </nav>
     </header>
   );

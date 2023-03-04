@@ -16,7 +16,7 @@ import { Layout } from 'Pages/Layout/Layout';
 import Homepage from 'Pages/Homepage/Homepage';
 import ContactInfo from 'Pages/Contacts/ContactsInfo/ContactInfo';
 
-const Register = lazy(() => import('./Pages/Register/Register'));
+const Registration = lazy(() => import('./Pages/Registration/Registration'));
 const LogIn = lazy(() => import('./Pages/LogIn/LogIn'));
 const Contacts = lazy(() => import('./Pages/Contacts/Contacts'));
 const NotFoundPage = lazy(() => import('./Pages/NotFoundPage/NotFoundPage'));
@@ -28,7 +28,7 @@ export const App = () => {
       <Routes>
         <Route path="/goit-react-hw-08-phonebook" element={<Layout />}>
           <Route index element={<Homepage />} />
-          <Route path="register" element={<NotFoundPage />} />
+          <Route path="registration" element={<Registration />} />
           <Route path="login" element={<NotFoundPage />} />
           <Route path="contacts" element={<Contacts />} />
           <Route path="contacts/:contactID" element={<ContactInfo />}></Route>

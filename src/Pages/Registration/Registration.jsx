@@ -1,4 +1,4 @@
-// import './Register.scss';
+import './Registration.scss';
 const Register = () => {
   return (
     <>
