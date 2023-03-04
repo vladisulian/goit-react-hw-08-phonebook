@@ -20,7 +20,7 @@ const Homepage = () => {
         />
 
         <NavLink
-          to={'register'}
+          to={'registration'}
           style={{ opacity: 0, pointerEvents: 'none' }}
           className="join-link"
         >

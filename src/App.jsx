@@ -31,7 +31,7 @@ export const App = () => {
           <Route path="registration" element={<Registration />} />
           <Route path="login" element={<NotFoundPage />} />
           <Route path="contacts" element={<Contacts />} />
-          <Route path="contacts/:contactID" element={<ContactInfo />}></Route>
+          <Route path="contacts/:contactID" element={<ContactInfo />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
