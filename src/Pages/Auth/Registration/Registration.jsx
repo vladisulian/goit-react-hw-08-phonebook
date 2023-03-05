@@ -86,6 +86,7 @@ const Register = () => {
           MPK agreement
         </NavLink>
       </Checkbox>
+      <NavLink to={'/goit-react-hw-08-phonebook/login'} className="login-link">I already have an account.</NavLink>
 
       <Button colorScheme="blue" mr={3} w={150} type="submit">
         Create account

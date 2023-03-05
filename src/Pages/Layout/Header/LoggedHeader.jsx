@@ -4,7 +4,10 @@ import Welcome from './loggedHeader/Welcome';
 
 const LoggedHeader = () => {
   const navigation = useNavigate();
-  const handleLogOut = () => navigation('');
+  const handleLogOut = () => {
+    navigation('');
+    
+  };
   return (
     <>
       <nav className="header__nav ">
