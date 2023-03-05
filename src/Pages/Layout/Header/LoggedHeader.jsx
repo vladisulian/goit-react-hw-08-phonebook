@@ -1,21 +1,22 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { BiLogInCircle } from 'react-icons/bi';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/auth/auth-operations';
+import { selectUserEmail } from 'redux/auth/auth-selectors';
 
 const LoggedHeader = () => {
   const navigation = useNavigate();
   const dispatch = useDispatch();
+  const userEmail = useSelector(selectUserEmail);
 
   const handleLogOut = () => {
     dispatch(logOut());
-    console.log('logout');
     navigation('');
   };
   return (
     <>
       <nav className="header__nav ">
-        <NavLink to={'contacts'}>Contacts</NavLink>
+        <p>{userEmail}</p>
         <BiLogInCircle
           fontSize={30}
           onClick={handleLogOut}

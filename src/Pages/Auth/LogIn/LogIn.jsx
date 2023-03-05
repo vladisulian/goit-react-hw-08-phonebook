@@ -23,13 +23,12 @@ const LogIn = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+
     dispatch(authOperations.logIn({ email, password }));
-    console.log('Login POST method sended.');
 
     setEmail(''); // reset
     setPassword(''); // reset
-
-    navigate('/goit-react-hw-08-phonebook');
+    setTimeout(() => navigate('/goit-react-hw-08-phonebook'), 150); // * its needed to view a text for LOGGED user. (useSelector has a delay in homepage.jsx;)
   };
 
   return (

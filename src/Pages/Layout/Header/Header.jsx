@@ -7,6 +7,7 @@ import { selectIsLoggedIn } from 'redux/auth/auth-selectors';
 import { lazy, Suspense } from 'react';
 import ContactsHeader from './ContactsHeader';
 import { BiLogInCircle } from 'react-icons/bi';
+import styled from 'styled-components';
 
 const LoggedHeader = lazy(() => import('./LoggedHeader'));
 
@@ -19,6 +20,15 @@ export const Header = () => {
     navigation('/goit-react-hw-08-phonebook/registration');
   const showContactsHeader =
     location.pathname === '/goit-react-hw-08-phonebook/contacts';
+
+  const Nav = styled.nav`
+    display: flex;
+    align-items: center;
+    gap: 35px;
+
+    position: absolute;
+    left: 10px;
+  `;
 
   return (
     <>
@@ -39,9 +49,12 @@ export const Header = () => {
             bgGradient="linear(to-l, #7928CA, #FF0080)"
             className="chakra_gradient"
           />
-          <NavLink to={''} end className="header__logo">
-            <AiFillHome />
-          </NavLink>
+          <Nav>
+            <NavLink to={''} end className="header__logo">
+              <AiFillHome />
+            </NavLink>
+            {isLogged && <NavLink to={'contacts'}>Contacts</NavLink>}
+          </Nav>
 
           {showContactsHeader && <ContactsHeader />}
 
