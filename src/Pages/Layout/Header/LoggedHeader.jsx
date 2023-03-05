@@ -1,6 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { BiLogInCircle } from 'react-icons/bi';
-import Welcome from './loggedHeader/Welcome';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/auth-operations';
 
@@ -23,7 +22,6 @@ const LoggedHeader = () => {
           style={{ cursor: 'pointer' }}
         />
       </nav>
-      <Welcome />
     </>
   );
 };

@@ -32,3 +32,6 @@
 .join-link {
     transition: 550ms opacity ease-in;
 }
+.Homepage__hero .logged {
+  padding: 0 40px;
+}

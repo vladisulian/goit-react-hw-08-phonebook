@@ -11,7 +11,8 @@ const TextFadeIn = ({ text, speed, onFinish, className }) => {
 
       if (currentIndex === text.length) {
         clearInterval(intervalId);
-        onFinish();
+
+        onFinish && onFinish();
       }
     }, speed);
 
@@ -23,4 +24,4 @@ const TextFadeIn = ({ text, speed, onFinish, className }) => {
   return <div className={className}>{displayedText}</div>;
 };
 
-export default TextFadeIn;
+export default React.memo(TextFadeIn);

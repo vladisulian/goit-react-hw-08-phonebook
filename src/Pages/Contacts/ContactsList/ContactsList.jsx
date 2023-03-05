@@ -1,11 +1,4 @@
 import './ContactsList.css';
-import PropTypes from 'prop-types';
-import Pagination from 'react-paginate';
-//? redux
-import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts, selectFilter } from 'redux/selectors';
-import { useEffect } from 'react';
-import { fetchContactsAPI } from 'redux/operations';
 import {
   Button,
   Card,
@@ -17,6 +10,13 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react';
+import incognito from '../../../images/incognito.png';
+import PropTypes from 'prop-types';
+import Pagination from 'react-paginate';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectContacts, selectFilter } from 'redux/selectors';
+import { useEffect } from 'react';
+import { fetchContactsAPI } from 'redux/operations';
 import { Link, useLocation } from 'react-router-dom';
 import { resetContactInfo } from 'redux/contactsSlice';
 
@@ -42,7 +42,6 @@ export const ContactsList = () => {
     <>
       <ul className="Contacts-list">
         {filteredContacts.map(({ id, name, phone, surname, image }) => {
-          // console.log('filteredContacts', filteredContacts);
           return (
             <li key={id}>
               <Card
@@ -62,7 +61,16 @@ export const ContactsList = () => {
                     alt={`${id} avatar`}
                   />
                 ) : (
-                  ''
+                  <Image
+                    className={'Contact-avatar'}
+                    src={incognito}
+                    alt={`${id} avatar`}
+                    objectFit="cover"
+                    w={'100px !important'}
+                    h={'100px !important'}
+                    borderRadius={50}
+                    maxW={{ base: '100%', sm: '200px' }}
+                  />
                 )}
                 <Divider className="divider-vertical " orientation="vertical" />
 

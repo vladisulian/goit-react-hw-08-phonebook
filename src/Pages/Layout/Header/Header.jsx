@@ -9,16 +9,14 @@ import ContactsHeader from './ContactsHeader';
 import { BiLogInCircle } from 'react-icons/bi';
 
 const LoggedHeader = lazy(() => import('./LoggedHeader'));
-const Welcome = lazy(() => import('./loggedHeader/Welcome'));
 
 export const Header = () => {
   const location = useLocation();
   const navigation = useNavigate();
   const isLogged = useSelector(selectIsLoggedIn);
 
-  const handleLogIn = () => {
+  const handleLogIn = () =>
     navigation('/goit-react-hw-08-phonebook/registration');
-  };
   const showContactsHeader =
     location.pathname === '/goit-react-hw-08-phonebook/contacts';
 

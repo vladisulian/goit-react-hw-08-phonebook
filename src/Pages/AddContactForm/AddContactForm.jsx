@@ -33,14 +33,14 @@ export const AddContactForm = () => {
 
   const dispatch = useDispatch();
   const [name, setName] = useState('');
-  // const [surname, setSurname] = useState('');
+  const [surname, setSurname] = useState('');
   const [number, setNumber] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
     const name = form.elements.name.value;
-    // const surname = form.elements.surname.value;
+    const surname = form.elements.surname.value;
     const number = form.elements.number.value;
     const contact = { name, number };
     // console.log('Added contact', contact);
@@ -52,7 +52,7 @@ export const AddContactForm = () => {
 
   const reset = () => {
     setName('');
-    // setSurname('');
+    setSurname('');
     setNumber('');
   };
 
@@ -93,14 +93,14 @@ export const AddContactForm = () => {
                 />
               </FormControl>
 
-              {/* <FormControl mt={4}>
+              <FormControl mt={4}>
                 <FormLabel htmlFor={'surname'}>Surname</FormLabel>
                 <Input
                   name={'surname'}
                   ref={initialRef}
                   placeholder="Surname"
                 />
-              </FormControl> */}
+              </FormControl>
 
               <FormControl mt={4} isRequired>
                 <FormLabel htmlFor={'number'}>Phone number</FormLabel>

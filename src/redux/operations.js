@@ -9,8 +9,7 @@ export const fetchContactsAPI = createAsyncThunk(
     const response = await axios
       .get('/contacts')
       .catch(error => console.error(error));
-    // console.log('response.data from fetch(operations)', response.data);
-
+    console.log(response.data)
     return response.data;
   }
 );
@@ -24,7 +23,6 @@ export const addContactAPI = createAsyncThunk(
     response.status === 201
       ? toast.success('Contact added! ', toastSuccess)
       : toast.error('Something went wrong :(', toastError);
-    // console.log('response.data from addContact(operations)', response.data);
     return response.data;
   }
 );
@@ -36,7 +34,6 @@ export const fetchContactInfoAPI = createAsyncThunk(
       .get(`contacts/${contactID}`)
       .catch(error => console.error(error));
 
-    // console.log('response.data from operations.js', response.data);
     return response.data;
   }
 );
@@ -45,7 +42,6 @@ export const deleteContactAPI = createAsyncThunk(
   'contacts/deleteContact',
   async contactId => {
     await axios.delete(`/${contactId}`).catch(error => console.error(error));
-    // console.log('Contact deleted. ID is =>', contactId);
     toast.success('Contact deleted! ', toastSuccess);
     return contactId;
   }
