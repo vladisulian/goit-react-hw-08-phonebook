@@ -33,16 +33,16 @@ export const AddContactForm = () => {
 
   const dispatch = useDispatch();
   const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
-  const [phone, setPhone] = useState('');
+  // const [surname, setSurname] = useState('');
+  const [number, setNumber] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
     const name = form.elements.name.value;
-    const surname = form.elements.surname.value;
-    const phone = form.elements.phone.value;
-    const contact = { name, surname, phone };
+    // const surname = form.elements.surname.value;
+    const number = form.elements.number.value;
+    const contact = { name, number };
     // console.log('Added contact', contact);
     dispatch(addContactAPI(contact));
 
@@ -52,8 +52,8 @@ export const AddContactForm = () => {
 
   const reset = () => {
     setName('');
-    setSurname('');
-    setPhone('');
+    // setSurname('');
+    setNumber('');
   };
 
   return (
@@ -83,7 +83,7 @@ export const AddContactForm = () => {
             <ModalCloseButton className="modal-close-button" />
             <ModalBody pb={6}>
               <FormControl isRequired>
-                <FormLabel htmlFor={'name'}>First name</FormLabel>
+                <FormLabel htmlFor={'name'}>Name</FormLabel>
                 <Input
                   name={'name'}
                   ref={initialRef}
@@ -93,22 +93,22 @@ export const AddContactForm = () => {
                 />
               </FormControl>
 
-              <FormControl mt={4}>
+              {/* <FormControl mt={4}>
                 <FormLabel htmlFor={'surname'}>Surname</FormLabel>
                 <Input
                   name={'surname'}
                   ref={initialRef}
                   placeholder="Surname"
                 />
-              </FormControl>
+              </FormControl> */}
 
               <FormControl mt={4} isRequired>
-                <FormLabel htmlFor={'phone'}>Phone number</FormLabel>
+                <FormLabel htmlFor={'number'}>Phone number</FormLabel>
                 <Input
-                  name={'phone'}
+                  name={'number'}
                   placeholder="+(380)-123-45-67"
                   type={'number'}
-                  title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+                  title="number number must be digits and can contain spaces, dashes, parentheses and can start with +"
                 />
               </FormControl>
             </ModalBody>
@@ -128,6 +128,6 @@ export const AddContactForm = () => {
 AddContactForm.propTypes = {
   name: PropTypes.string,
   surname: PropTypes.string,
-  phone: PropTypes.string,
+  number: PropTypes.string,
   onSubmit: PropTypes.func,
 };

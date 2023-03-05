@@ -33,7 +33,7 @@ export const fetchContactInfoAPI = createAsyncThunk(
   'contact/info',
   async contactID => {
     const response = await axios
-      .get(`/${contactID}`)
+      .get(`contacts/${contactID}`)
       .catch(error => console.error(error));
 
     // console.log('response.data from operations.js', response.data);
