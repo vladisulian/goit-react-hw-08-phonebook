@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[149],{149:function(e,r,t){t.r(r);var c=t(184),s=t(8687).useSelector,l=t(9869).selectUserName;r.default=function(){var e=s(l);return(0,c.jsx)("div",{id:"userlogged",children:(0,c.jsxs)("p",{children:["Welcome, ",e,"!"]})})}}}]);
-//# sourceMappingURL=149.bd7cf4a8.chunk.js.map
