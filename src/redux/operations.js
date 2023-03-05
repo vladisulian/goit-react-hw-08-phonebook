@@ -1,4 +1,3 @@
-import { URL } from 'API/FetchAPI';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -7,7 +6,9 @@ import { toastError, toastSuccess } from 'components/ReactToastify/toasts';
 export const fetchContactsAPI = createAsyncThunk(
   'contacts/fetchAll',
   async () => {
-    const response = await axios.get(URL).catch(error => console.error(error));
+    const response = await axios
+      .get('/contacts')
+      .catch(error => console.error(error));
     // console.log('response.data from fetch(operations)', response.data);
 
     return response.data;
@@ -18,7 +19,7 @@ export const addContactAPI = createAsyncThunk(
   'contacts/addContact',
   async contact => {
     const response = await axios
-      .post(URL, contact)
+      .post('/contacts', contact)
       .catch(error => console.error(error));
     response.status === 201
       ? toast.success('Contact added! ', toastSuccess)
@@ -32,7 +33,7 @@ export const fetchContactInfoAPI = createAsyncThunk(
   'contact/info',
   async contactID => {
     const response = await axios
-      .get(`${URL}/${contactID}`)
+      .get(`/${contactID}`)
       .catch(error => console.error(error));
 
     // console.log('response.data from operations.js', response.data);
@@ -43,9 +44,7 @@ export const fetchContactInfoAPI = createAsyncThunk(
 export const deleteContactAPI = createAsyncThunk(
   'contacts/deleteContact',
   async contactId => {
-    await axios
-      .delete(`${URL}/${contactId}`)
-      .catch(error => console.error(error));
+    await axios.delete(`/${contactId}`).catch(error => console.error(error));
     // console.log('Contact deleted. ID is =>', contactId);
     toast.success('Contact deleted! ', toastSuccess);
     return contactId;

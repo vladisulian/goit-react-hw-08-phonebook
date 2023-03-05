@@ -2,11 +2,37 @@ import './Registration.scss';
 import { Button, FormControl, FormLabel, Input } from '@chakra-ui/react';
 import { Checkbox } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import * as authOperations from 'redux/auth/auth-operations';
+import { useState } from 'react';
 
 const Register = () => {
-  const handleSubmit = event => {
-    event.preventDefault();
+  const dispatch = useDispatch();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleChange = ({ target: { name, value } }) => {
+    switch (name) {
+      case 'name':
+        return setName(value);
+      case 'email':
+        return setEmail(value);
+      case 'password':
+        return setPassword(value);
+      default:
+        return;
+    }
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    dispatch(authOperations.register({ name, email, password }));
     console.log('Registration POST method sended.');
+
+    setName(''); // reset
+    setEmail(''); // reset
+    setPassword(''); // reset
   };
 
   return (
@@ -16,7 +42,9 @@ const Register = () => {
         Nickname
         <Input
           type={'text'}
-          name={'nickname'}
+          name={'name'}
+          value={name}
+          onChange={handleChange}
           placeholder="programmer2301"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
@@ -28,6 +56,8 @@ const Register = () => {
         Email
         <Input
           name={'email'}
+          value={email}
+          onChange={handleChange}
           placeholder="example@mail.com"
           type={'email'}
           required
@@ -38,6 +68,8 @@ const Register = () => {
         Password
         <Input
           name={'password'}
+          value={password}
+          onChange={handleChange}
           placeholder="*********"
           type={'password'}
           required

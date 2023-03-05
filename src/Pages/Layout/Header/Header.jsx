@@ -4,9 +4,15 @@ import { AiFillHome } from 'react-icons/ai';
 import { NavLink, useLocation } from 'react-router-dom';
 
 import ContactsHeader from './ContactsHeader';
+import { useSelector } from 'react-redux';
+import {selectIsLoggedIn} from 'redux/auth/auth-selectors';
 
 export const Header = () => {
   const location = useLocation();
+  // const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
+  const isLoading = useSelector(selectIsLoggedIn);
+
+  // console.log(useSelector(authSelectors));
   const showHomepageHeader =
     location.pathname === '/goit-react-hw-08-phonebook';
   const showContactsHeader =
