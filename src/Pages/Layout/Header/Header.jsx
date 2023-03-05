@@ -1,43 +1,64 @@
-import './Header.css';
-import { Box } from '@chakra-ui/react';
+import './Header.scss';
+import { Box, Spinner } from '@chakra-ui/react';
 import { AiFillHome } from 'react-icons/ai';
-import { NavLink, useLocation } from 'react-router-dom';
-
-import ContactsHeader from './ContactsHeader';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import {selectIsLoggedIn} from 'redux/auth/auth-selectors';
+import { selectIsLoggedIn } from 'redux/auth/auth-selectors';
+import { lazy, Suspense } from 'react';
+import ContactsHeader from './ContactsHeader';
+import { BiLogInCircle } from 'react-icons/bi';
+
+const LoggedHeader = lazy(() => import('./LoggedHeader'));
+const Welcome = lazy(() => import('./loggedHeader/Welcome'));
 
 export const Header = () => {
   const location = useLocation();
-  // const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
-  const isLoading = useSelector(selectIsLoggedIn);
+  const navigation = useNavigate();
+  const isLogged = useSelector(selectIsLoggedIn);
 
-  // console.log(useSelector(authSelectors));
-  const showHomepageHeader =
-    location.pathname === '/goit-react-hw-08-phonebook';
+  const handleLogIn = () => {
+    navigation('/goit-react-hw-08-phonebook/registration');
+  };
   const showContactsHeader =
     location.pathname === '/goit-react-hw-08-phonebook/contacts';
 
   return (
-    <header>
-      <Box
-        w="100%"
-        h="200px"
-        bgGradient="linear(to-l, #7928CA, #FF0080)"
-        className="chakra_gradient"
-      />
+    <>
+      <Suspense
+        fallback={
+          <Spinner
+            color="#7e0039c2"
+            size={'xl'}
+            emptyColor="gray.200"
+            speed="900ms"
+          />
+        }
+      >
+        <header>
+          <Box
+            w="100%"
+            h="200px"
+            bgGradient="linear(to-l, #7928CA, #FF0080)"
+            className="chakra_gradient"
+          />
+          <NavLink to={''} end className="header__logo">
+            <AiFillHome />
+          </NavLink>
 
-      <NavLink to={''} end className="header__logo">
-        <AiFillHome />
-      </NavLink>
+          {showContactsHeader && <ContactsHeader />}
 
-      {showHomepageHeader && <p className="middle-title">Modern phonebook!</p>}
-      {showContactsHeader && <ContactsHeader />}
-
-      <nav className="header__nav">
-        <NavLink to={'contacts'}>Contacts</NavLink>
-        <NavLink to={'registration'}>Register</NavLink>
-      </nav>
-    </header>
+          {isLogged ? (
+            <LoggedHeader />
+          ) : (
+            <>
+              <p className="middle-title">Modern phonebook!</p>
+              <div id="userlogIn-container" onClick={handleLogIn}>
+                <BiLogInCircle />
+              </div>
+            </>
+          )}
+        </header>
+      </Suspense>
+    </>
   );
 };

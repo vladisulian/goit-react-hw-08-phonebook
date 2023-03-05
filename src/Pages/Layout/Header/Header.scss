@@ -15,9 +15,10 @@ header a {
   z-index: 10;
   color: white;
   transition: 250ms color cubic-bezier(0.785, 0.135, 0.15, 0.86);
-}
-header a:hover {
-  color: #FF0080;;
+
+  &:hover {
+    color: #ff0080;
+  }
 }
 
 .header__logo {
@@ -25,10 +26,12 @@ header a:hover {
   left: 10px;
 
   font-size: 40px;
+
+  &:hover {
+    fill: purple;
+  }
 }
-.header__logo:hover {
-  fill: purple;
-}
+
 .header__middle-title {
   z-index: 10;
 }
@@ -42,5 +45,24 @@ header a:hover {
   font-size: 20px;
 }
 .active {
-  color: #FF0080;;
+  color: #ff0080;
+}
+
+// *logged
+#userlogged {
+  z-index: 10;
+  & p {
+    color: white;
+    font-size: 20px;
+  }
+}
+#userlogIn-container {
+  position: absolute;
+  right: 15px;
+
+  font-size: 35px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }

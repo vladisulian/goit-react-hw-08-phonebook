@@ -1,13 +1,15 @@
 import './Registration.scss';
 import { Button, FormControl, FormLabel, Input } from '@chakra-ui/react';
 import { Checkbox } from '@chakra-ui/react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import * as authOperations from 'redux/auth/auth-operations';
 import { useState } from 'react';
+import * as authOperations from 'redux/auth/auth-operations';
 
 const Register = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -33,6 +35,8 @@ const Register = () => {
     setName(''); // reset
     setEmail(''); // reset
     setPassword(''); // reset
+
+    navigate('/goit-react-hw-08-phonebook/contacts');
   };
 
   return (

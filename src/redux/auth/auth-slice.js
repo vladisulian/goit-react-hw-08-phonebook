@@ -3,10 +3,8 @@ import { register } from './auth-operations';
 
 const initialState = {
   user: { name: null, email: null },
-  auth: {
-    token: null,
-    isLoggedIn: false,
-  },
+  token: null,
+  isLoggedIn: false,
 };
 
 const authSlice = createSlice({
