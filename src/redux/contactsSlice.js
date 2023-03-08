@@ -3,22 +3,20 @@ import {
   fetchContactsAPI,
   addContactAPI,
   deleteContactAPI,
-  fetchContactInfoAPI,
 } from './operations';
 
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState: {
     contacts: [],
-    contactInfo: {},
     isLoading: false,
     error: null,
   },
   reducers: {
-    resetContactInfo(state) {
-      state.contactInfo = {};
-      // console.log(state.contactInfo);
-    },
+    // resetContactInfo(state) {
+    //   state.contactInfo = {};
+    //   // console.log(state.contactInfo);
+    // },
   },
   extraReducers: builder => {
     builder
@@ -56,20 +54,9 @@ const contactsSlice = createSlice({
       })
       .addCase(deleteContactAPI.rejected, state => {
         state.isLoading = false;
-      })
-
-      .addCase(fetchContactInfoAPI.pending, state => {
-        state.isLoading = true;
-      })
-      .addCase(fetchContactInfoAPI.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.contactInfo = action.payload;
-      })
-      .addCase(fetchContactInfoAPI.rejected, state => {
-        state.isLoading = false;
       });
   },
 });
 
-export const { resetContactInfo } = contactsSlice.actions;
+// export const { resetContactInfo } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;

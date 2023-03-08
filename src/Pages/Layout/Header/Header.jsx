@@ -11,6 +11,15 @@ import styled from 'styled-components';
 
 const LoggedHeader = lazy(() => import('./LoggedHeader'));
 
+const Nav = styled.nav`
+  display: flex;
+  align-items: center;
+  gap: 35px;
+
+  position: absolute;
+  left: 10px;
+`;
+
 export const Header = () => {
   const location = useLocation();
   const navigation = useNavigate();
@@ -20,15 +29,6 @@ export const Header = () => {
     navigation('/goit-react-hw-08-phonebook/registration');
   const showContactsHeader =
     location.pathname === '/goit-react-hw-08-phonebook/contacts';
-
-  const Nav = styled.nav`
-    display: flex;
-    align-items: center;
-    gap: 35px;
-
-    position: absolute;
-    left: 10px;
-  `;
 
   return (
     <>

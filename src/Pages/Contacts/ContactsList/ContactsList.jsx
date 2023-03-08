@@ -12,13 +12,12 @@ import {
 } from '@chakra-ui/react';
 import incognito from '../../../images/incognito.png';
 import PropTypes from 'prop-types';
-import Pagination from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts, selectFilter } from 'redux/selectors';
 import { useEffect } from 'react';
 import { fetchContactsAPI } from 'redux/operations';
 import { Link, useLocation } from 'react-router-dom';
-import { resetContactInfo } from 'redux/contactsSlice';
+// import { resetContactInfo } from 'redux/contactsSlice';
 
 export const ContactsList = () => {
   const dispatch = useDispatch();
@@ -28,10 +27,7 @@ export const ContactsList = () => {
   useEffect(() => {
     dispatch(fetchContactsAPI()); //* dispatch in hook dependency will update contacts-list.
   }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(resetContactInfo()); //* reset contact info
-  }, [dispatch]);
+  
   const filter = useSelector(selectFilter);
 
   const filteredContacts = contacts.filter(contact =>

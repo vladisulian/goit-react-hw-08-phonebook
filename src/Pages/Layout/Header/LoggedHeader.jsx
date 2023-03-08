@@ -13,6 +13,7 @@ const LoggedHeader = () => {
     dispatch(logOut());
     navigation('');
   };
+  
   return (
     <>
       <nav className="header__nav ">
