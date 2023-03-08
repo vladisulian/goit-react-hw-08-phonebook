@@ -50,7 +50,7 @@ const Homepage = () => {
             <TextFadeIn
               text={`Welcome, dear ${username}! Now you can manage your contacts! `}
               onFinish={onTextFinish}
-              speed={70}
+              speed={50}
               className="Homepage-title logged"
             />
             <NavLink

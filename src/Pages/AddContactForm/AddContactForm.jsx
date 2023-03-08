@@ -40,6 +40,7 @@ export const AddContactForm = () => {
   const finalRef = useRef(null);
 
   const dispatch = useDispatch();
+
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [number, setNumber] = useState('');
@@ -53,7 +54,7 @@ export const AddContactForm = () => {
     );
     const number = form.elements.number.value;
     const contact = { name, number };
-    console.log('Added contact', contact);
+    // console.log('Added contact', contact);
     dispatch(addContactAPI(contact));
 
     reset();

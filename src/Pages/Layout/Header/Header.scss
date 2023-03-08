@@ -37,9 +37,16 @@ header a {
   right: 35px;
 
   display: flex;
+  align-items: center;
   gap: 35px;
 
   font-size: 20px;
+
+  & img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+  }
 }
 .active {
   color: #ff0080;

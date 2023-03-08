@@ -81,7 +81,7 @@ const ContactInfo = () => {
                 </li>
                 <li>
                   <MdWork className="job-icon" />
-                  Job role: <span>{job ? job : 'Programmer'}</span>
+                  Job role: <span>{job ? job : 'Incredibly talented programmer'}</span>
                 </li>
                 <li>
                   <GrMapLocation className="country-icon" /> Country:
