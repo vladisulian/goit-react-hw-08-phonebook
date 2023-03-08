@@ -9,10 +9,9 @@ const Homepage = () => {
   const isLogged = useSelector(selectIsLoggedIn);
   const username = useSelector(selectUserName);
 
-
-  const handleTextFinish = () => {
-    document.querySelector('.join-link').style.opacity = 1;
-    document.querySelector('.join-link').style.pointerEvents = 'all';
+  const onTextFinish = () => {
+    document.querySelector('.Homepage__hero A').style.opacity = 1;
+    document.querySelector('.Homepage__hero A').style.pointerEvents = 'all';
   };
 
   return (
@@ -23,7 +22,7 @@ const Homepage = () => {
             <TextFadeIn
               text="GoIT React phonebook - Modern phonebook!"
               speed={70}
-              onFinish={handleTextFinish}
+              onFinish={onTextFinish}
               className="Homepage-title"
             />
             <NavLink
@@ -47,11 +46,33 @@ const Homepage = () => {
             </NavLink>
           </>
         ) : (
-          <TextFadeIn
-            text={`Welcome, dear ${username}! Now you can manage your contacts! `}
-            speed={70}
-            className="Homepage-title logged"
-          />
+          <>
+            <TextFadeIn
+              text={`Welcome, dear ${username}! Now you can manage your contacts! `}
+              onFinish={onTextFinish}
+              speed={70}
+              className="Homepage-title logged"
+            />
+            <NavLink
+              to={'contacts'}
+              style={{ opacity: 0, pointerEvents: 'none' }}
+              className="join-link"
+            >
+              <Button
+                colorScheme="teal"
+                height="100px"
+                width="200px"
+                border="2px"
+                borderColor="green.500"
+                fontSize={'32px'}
+                variant="ghost"
+                className="chakra-button"
+                size={'xl'}
+              >
+                Contacts
+              </Button>
+            </NavLink>
+          </>
         )}
       </section>
     </main>

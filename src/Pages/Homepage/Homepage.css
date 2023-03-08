@@ -2,6 +2,9 @@
   display: flex;
   justify-content: center;
 }
+.Homepage__hero a {
+  transition: 550ms opacity ease-in;
+}
 .Homepage-content div {
   width: 453px;
   height: 318px;
@@ -28,9 +31,6 @@
 }
 .chakra-button {
   font-family: 'Roboto Mono' !important;
-}
-.join-link {
-    transition: 550ms opacity ease-in;
 }
 .Homepage__hero .logged {
   padding: 0 40px;

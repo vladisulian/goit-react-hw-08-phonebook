@@ -26,6 +26,14 @@ const AddContactContainer = styled.div`
 `;
 const { useRef } = require('react');
 
+// *
+function CapitalizeFirstLetter(name, surname) {
+  return `${name[0].toUpperCase()}${name.slice(
+    1
+  )} ${surname[0].toUpperCase()}${surname.slice(1)}`;
+}
+// *
+
 export const AddContactForm = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = useRef(null);
@@ -39,11 +47,13 @@ export const AddContactForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
-    const name = form.elements.name.value;
-    const surname = form.elements.surname.value;
+    const name = CapitalizeFirstLetter(
+      form.elements.name.value,
+      form.elements.surname.value
+    );
     const number = form.elements.number.value;
     const contact = { name, number };
-    // console.log('Added contact', contact);
+    console.log('Added contact', contact);
     dispatch(addContactAPI(contact));
 
     reset();

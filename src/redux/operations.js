@@ -9,7 +9,7 @@ export const fetchContactsAPI = createAsyncThunk(
     const response = await axios
       .get('/contacts')
       .catch(error => console.error(error));
-    console.log(response.data)
+    console.log(response.data);
     return response.data;
   }
 );
@@ -17,13 +17,15 @@ export const fetchContactsAPI = createAsyncThunk(
 export const addContactAPI = createAsyncThunk(
   'contacts/addContact',
   async contact => {
-    const response = await axios
-      .post('/contacts', contact)
-      .catch(error => console.error(error));
-    response.status === 201
-      ? toast.success('Contact added! ', toastSuccess)
-      : toast.error('Something went wrong :(', toastError);
-    return response.data;
+    try {
+      const response = await axios.post('/contacts', contact);
+      toast.success('Contact added! ', toastSuccess);
+      console.log('response.data', response.data);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      toast.error('Something went wrong :(', toastError);
+    }
   }
 );
 
