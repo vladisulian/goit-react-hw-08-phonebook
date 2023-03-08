@@ -27,7 +27,7 @@ export const ContactsList = () => {
   useEffect(() => {
     dispatch(fetchContactsAPI()); //* dispatch in hook dependency will update contacts-list.
   }, [dispatch]);
-  
+
   const filter = useSelector(selectFilter);
 
   const filteredContacts = contacts.filter(contact =>
@@ -37,7 +37,7 @@ export const ContactsList = () => {
   return (
     <>
       <ul className="Contacts-list">
-        {filteredContacts.map(({ id, name, phone, surname, image }) => {
+        {filteredContacts.map(({ id, name, number, surname, image }) => {
           return (
             <li key={id}>
               <Card
@@ -73,10 +73,10 @@ export const ContactsList = () => {
                 <Stack>
                   <CardBody>
                     <Heading size="md" style={{ textAlign: 'start' }}>
-                      {name} {surname}
+                      {name} {surname} <br /> ({number})
                     </Heading>
                     <Divider className="divider" />
-                    <Text py="2">{phone}</Text>
+                    <Text py="2"></Text>
                   </CardBody>
 
                   <CardFooter>
