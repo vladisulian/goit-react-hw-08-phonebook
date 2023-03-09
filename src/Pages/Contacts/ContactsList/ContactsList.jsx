@@ -73,10 +73,9 @@ export const ContactsList = () => {
                 <Stack>
                   <CardBody>
                     <Heading size="md" style={{ textAlign: 'start' }}>
-                      {name} {surname} <br /> ({number})
+                      {name} {surname} <br /> <span>({number})</span>
                     </Heading>
                     <Divider className="divider" />
-                    <Text py="2"></Text>
                   </CardBody>
 
                   <CardFooter>

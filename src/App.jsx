@@ -9,7 +9,7 @@ import { Flip } from 'react-toastify';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectLoadingStatus } from 'redux/selectors';
-import { lazy, Suspense } from 'react';
+import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from 'Pages/Layout/Layout';
 // lazy pages
@@ -25,6 +25,7 @@ const NotFoundPage = lazy(() => import('./Pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
   const isLoading = useSelector(selectLoadingStatus);
+
   return (
     <>
       <Routes>
@@ -37,6 +38,9 @@ export const App = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
+
+      {/*  */}
+
       <ToastContainer
         position="top-right"
         transition={Flip}
