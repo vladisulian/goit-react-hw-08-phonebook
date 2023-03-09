@@ -28,7 +28,7 @@ const LogIn = () => {
 
     setEmail(''); // reset
     setPassword(''); // reset
-    setTimeout(() => navigate('/goit-react-hw-08-phonebook'), 150); // * its needed to view a text for LOGGED user. (useSelector has a delay in homepage.jsx;)
+    // setTimeout(() => navigate('/goit-react-hw-08-phonebook'), 150); // * its needed to view a text for LOGGED user. (useSelector has a delay in homepage.jsx;)
   };
 
   return (
