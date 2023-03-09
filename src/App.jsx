@@ -64,7 +64,15 @@ export const App = () => {
             }
           />
 
-          <Route path="contacts/:contactID" element={<ContactInfo />} />
+          <Route
+            path="contacts/:contactID"
+            element={
+              <PrivateRoute
+                redirectTo="/goit-react-hw-08-phonebook/registration"
+                component={<ContactInfo />}
+              />
+            }
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
