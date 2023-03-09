@@ -15,6 +15,8 @@ import { Layout } from 'Pages/Layout/Layout';
 // lazy pages
 import Homepage from 'Pages/Homepage/Homepage';
 import ContactInfo from 'Pages/Contacts/ContactsInfo/ContactInfo';
+import { Suspense } from 'react';
+import PrivateRoute from 'Routes/PrivateRoute';
 
 const Registration = lazy(() =>
   import('./Pages/Auth/Registration/Registration')
@@ -33,7 +35,18 @@ export const App = () => {
           <Route index element={<Homepage />} />
           <Route path="registration" element={<Registration />} />
           <Route path="login" element={<LogIn />} />
-          <Route path="contacts" element={<Contacts />} />
+
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute
+                redirectTo="/goit-react-hw-08-phonebook/registration"
+                component={<Contacts />}
+              />
+            }
+          />
+
+          {/* <Route path="contacts" element={<Contacts />} /> */}
           <Route path="contacts/:contactID" element={<ContactInfo />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
