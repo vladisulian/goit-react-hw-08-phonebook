@@ -1,22 +1,17 @@
-// chakra
-import { Spinner } from '@chakra-ui/react';
-import './components/ChakraUI/spinner.css';
-// toast
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { Flip } from 'react-toastify';
-// react
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { selectLoadingStatus } from 'redux/selectors';
-import { lazy } from 'react';
+import ToastContainerFunc from 'components/ReactToastify/ToastContainer'; // toast
+import ChakraSpinner from 'components/ChakraUI/Spinner/Spinner'; // spinner
+
+import React, { useEffect, lazy } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIsRefreshing, selectLoadingStatus } from 'redux/selectors';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from 'Pages/Layout/Layout';
-// lazy pages
+
 import Homepage from 'Pages/Homepage/Homepage';
 import ContactInfo from 'Pages/Contacts/ContactsInfo/ContactInfo';
 import PrivateRoute from 'Routes/PrivateRoute';
 import { RestrictedRoute } from 'Routes/RestrictedRoute';
+import { refreshUser } from 'redux/auth/auth-operations';
 
 const Registration = lazy(() =>
   import('./Pages/Auth/Registration/Registration')
@@ -26,9 +21,18 @@ const Contacts = lazy(() => import('./Pages/Contacts/Contacts'));
 const NotFoundPage = lazy(() => import('./Pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
-  const isLoading = useSelector(selectLoadingStatus);
+  const dispatch = useDispatch();
 
-  return (
+  const isLoading = useSelector(selectLoadingStatus);
+  const { isRefreshing } = useSelector(selectIsRefreshing);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <ChakraSpinner />
+  ) : (
     <>
       <Routes>
         <Route path="/goit-react-hw-08-phonebook" element={<Layout />}>
@@ -79,27 +83,8 @@ export const App = () => {
 
       {/*  */}
 
-      <ToastContainer
-        position="top-right"
-        transition={Flip}
-        autoClose={1000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
-      {isLoading && (
-        <Spinner
-          color="#7e0039c2"
-          size={'xl'}
-          emptyColor="gray.200"
-          speed="900ms"
-        />
-      )}
+      <ToastContainerFunc />
+      {isLoading && <ChakraSpinner />}
     </>
   );
 };
