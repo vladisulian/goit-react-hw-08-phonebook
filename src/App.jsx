@@ -42,7 +42,7 @@ export const App = () => {
             path="registration"
             element={
               <RestrictedRoute
-                redirectTo="/goit-react-hw-08-phonebook"
+                redirectTo="/goit-react-hw-08-phonebook/contacts"
                 component={<Registration />}
               />
             }
@@ -52,7 +52,7 @@ export const App = () => {
             path="login"
             element={
               <RestrictedRoute
-                redirectTo="/goit-react-hw-08-phonebook"
+                redirectTo="/goit-react-hw-08-phonebook/contacts"
                 component={<LogIn />}
               />
             }
