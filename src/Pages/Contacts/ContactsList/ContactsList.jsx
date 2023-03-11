@@ -8,7 +8,6 @@ import {
   Heading,
   Image,
   Stack,
-  Text,
 } from '@chakra-ui/react';
 import incognito from '../../../images/incognito.png';
 import PropTypes from 'prop-types';
@@ -73,7 +72,7 @@ export const ContactsList = () => {
                 <Stack>
                   <CardBody>
                     <Heading size="md" style={{ textAlign: 'start' }}>
-                      {name} {surname} <br /> <span>({number})</span>
+                      {name} {surname} <br /> <span>{number}</span>
                     </Heading>
                     <Divider className="divider" />
                   </CardBody>
